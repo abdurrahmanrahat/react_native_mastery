@@ -1,12 +1,22 @@
-import { Stack } from "expo-router";
+import { Slot } from "expo-router";
 // import { StatusBar } from "expo-status-bar";
+import { ClerkProvider } from "@clerk/clerk-expo";
+import { tokenCache } from "@clerk/clerk-expo/token-cache";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function RootLayout() {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <Stack screenOptions={{ headerShown: false }} />
-      {/* <StatusBar style="dark" /> */}
-    </SafeAreaView>
+    <ClerkProvider tokenCache={tokenCache}>
+      <SafeAreaView style={{ flex: 1 }}>
+        <Slot />
+      </SafeAreaView>
+    </ClerkProvider>
   );
+}
+
+{
+  /* <SafeAreaView style={{ flex: 1 }}>
+    <Stack screenOptions={{ headerShown: false }} />
+    <StatusBar style="dark" /> 
+</SafeAreaView> */
 }
