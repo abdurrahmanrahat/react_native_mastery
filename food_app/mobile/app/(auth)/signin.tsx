@@ -27,8 +27,7 @@ const SignInPage = () => {
 
   const handleSignIn = async () => {
     if (!email || !password) {
-      Alert.alert("Error", "Email and password are required");
-      return;
+      return Alert.alert("Error", "Email and password are required");
     }
 
     if (!isLoaded) return;
