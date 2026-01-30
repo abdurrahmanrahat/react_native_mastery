@@ -1,5 +1,6 @@
 import RecipeCard from "@/components/Home/RecipeCard";
 import LoadingSpinner from "@/components/Others/LoadingSpinner";
+import { API_URL } from "@/constants/auth";
 import { COLORS } from "@/constants/colors";
 import { favoritesStyles } from "@/styles/favorites.styles";
 import { TRecipe } from "@/types/meal";
@@ -26,9 +27,7 @@ const FavoritesScreen = () => {
   useEffect(() => {
     const loadFavorites = async () => {
       try {
-        const response = await fetch(
-          `${process.env.API_URL}/favorites/${user?.id}`,
-        );
+        const response = await fetch(`${API_URL}/favorites/${user?.id}`);
 
         if (!response.ok) throw new Error("Failed to fetch favorites");
 
