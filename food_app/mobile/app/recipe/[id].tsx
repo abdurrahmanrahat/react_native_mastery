@@ -24,13 +24,11 @@ const RecipeDetailScreen = () => {
 
   const { user } = useUser();
   const userId = user?.id;
-  console.log("API_URL", API_URL);
 
   useEffect(() => {
     const checkIfSaved = async () => {
       try {
         const response = await fetch(`${API_URL}/favorites/${userId}`);
-        console.log("response", response);
 
         const favorites = await response.json();
 
